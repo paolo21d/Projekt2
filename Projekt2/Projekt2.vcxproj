@@ -110,6 +110,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Baza.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Plik.cpp" />
+    <ClCompile Include="Slowo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Baza.h" />
+    <ClInclude Include="Plik.h" />
+    <ClInclude Include="Slowo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
