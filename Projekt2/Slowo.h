@@ -1,11 +1,13 @@
 #pragma once
 #include <vector>
+#include "Wystapienie.h"
 class Slowo
 {
-	std::string tresc;
-	std::vector <Plik> wystapienia;
 public:
-	Slowo();
+	std::string slowo;
+	int ilosc;
+	std::vector <Wystapienie> wyst;
+	Slowo(std::string word);
 	~Slowo();
 };
 

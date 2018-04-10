@@ -114,11 +114,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Plik.cpp" />
     <ClCompile Include="Slowo.cpp" />
+    <ClCompile Include="Wystapienie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baza.h" />
     <ClInclude Include="Plik.h" />
     <ClInclude Include="Slowo.h" />
+    <ClInclude Include="Wystapienie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

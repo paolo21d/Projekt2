@@ -1,9 +1,12 @@
 #include "Slowo.h"
+#include <string>
+using namespace std;
 
 
-
-Slowo::Slowo()
+Slowo::Slowo(string word)
 {
+	slowo = word;
+	ilosc = 1;
 }
 
 
