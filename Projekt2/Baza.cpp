@@ -3,13 +3,14 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cctype>
 using namespace std;
 
 Baza::Baza()
 {
 }
 
-int Baza::wprowadzPlik(std::string name) { 
+int Baza::wprowadzPlik(std::string name) {
 	//return 1-udalo sie, 0-niepowodzenie
 	for (auto i = 0; i < pliki.size(); ++i) { //sprawdzenie czy juz nie otworzylismy pliku o podanej nazwie
 		if (pliki[i].getNazwa() == name)
@@ -37,9 +38,9 @@ int Baza::slowaZPliku(Plik file)
 	string word="";
 	bool wystapilo = false;
 	for (auto i = 0; i < tresc.size(); ++i) {
-		if (tresc[i] == ' ' || tresc[i] == '\n') {
+		if (isspace(tresc[i]) || ispunct(tresc[i])) { //tresc[i]=='.' || tresc[i]==',' || tresc[i]=='!' || tresc[i]=='?'
 			if (!word.empty()) { //jesli slowo nie jest puste
-				for (auto k = 0; k < lista.size(); ++k) {
+				for (auto k = 0; k < lista.size(); ++k) { //przelecenie po liscie slow
 					wystapilo = false;
 					if (lista[k].slowo == word) //slowo juz jest w bazie
 					{
@@ -60,14 +61,16 @@ int Baza::slowaZPliku(Plik file)
 							Wystapienie w(file.getNazwa(), &file);
 							lista[k].wyst.push_back(w);
 						}
+						break;
 					}
-					else //slowa jeszcze nie bylo w bazie
-					{
-						Slowo s(word);
-						Wystapienie w(file.getNazwa(), &file);
-						s.wyst.push_back(w);
-						lista.push_back(s);
-					}
+
+				}
+				if(!wystapilo) //slowa jeszcze nie bylo w bazie
+                {
+					Slowo s(word);
+					Wystapienie w(file.getNazwa(), &file);
+					s.wyst.push_back(w);
+					lista.push_back(s);
 				}
 			}
 		}

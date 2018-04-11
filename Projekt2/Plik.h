@@ -9,10 +9,11 @@ private:
 public:
 	std::fstream plikuchwyt;
 	Plik();
+	Plik(const Plik & pl);
+	~Plik();
+
 	std::string getNazwa();
 	std::string getTresc();
 	Plik(std::string name, std::string tr);
-
-	~Plik();
 };
 
